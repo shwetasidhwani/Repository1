@@ -1,0 +1,22 @@
+/*Program to take input of a 4 digit number, check whether it is a perfect square and to print its reverse if it is a perfect square. */
+#include<stdio.h>
+#include<math.h>
+void main(){
+    int n,i,num;
+    int rev=0,d;
+    printf("Enter a 4 digit number: ");
+    scanf("%d",&n);
+    i=sqrt(n);
+    num=n;
+    if(i*i==n){
+        while(num>0){
+        d=num%10;
+        rev=10*rev+d;
+        num=num/10;
+        }
+        printf("\n %d is a perfect square. Its reverse is %d.",n,rev);
+    }
+    else{
+        printf("\n The number is %d not a perfect square.",n);
+    }
+}
