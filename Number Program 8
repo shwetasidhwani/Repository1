@@ -1,0 +1,18 @@
+/*Write a program to print first 15 Fibonacci numbers which are also prime numbers*/
+#include<stdio.h>
+void main(){
+    int f1=0,f2=1;
+    int n=0;
+    while(n<15){
+        int f=f1+f2;
+        f1=f2;
+        f2=f;
+        if(f1%2!=0)
+        {
+            printf("%d ",f1);
+                n++;
+        }
+    }
+}
+
+
