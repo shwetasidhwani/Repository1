@@ -1,0 +1,30 @@
+/*It is observed that all numbers converge to 1 if it is subjected to following process:
+a) If the number is even, divide it by 2
+b) If the number is odd, multiply it by 3 and add 1
+c) Repeat a & b till it converges to 1
+Write a program to read a number and display all the intermediate values
+till it converges to 1. Also count number of iterations required
+for conversions*/
+
+
+#include <math.h>
+#include <stdio.h>
+
+int main() {
+    int n,i=0;
+    printf("\nEnter a number: ");
+    scanf("\n %d",&n);
+    while(n>1){
+        if(n%2==0){
+            n=n/2;
+            printf("\n %d",n);
+            i++;
+        }
+        else{
+            n=n*3+1;
+            printf("\n %d",n);
+            i++;
+        }
+    }
+    return 0;
+}
