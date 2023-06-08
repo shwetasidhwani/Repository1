@@ -1,0 +1,25 @@
+/*Write a program to identify a 5 digit number which multilply by 4 generates the reverse of
+original number*/
+
+
+#include <math.h>
+#include <stdio.h>
+
+int main() {
+    int i,j,d,rev;
+    int num;
+    for(int i=10000;i<=99999;i++){
+        num=i;
+        rev=0;
+        j=num*4;
+        while(num!=0){
+            d=num%10;
+            num=num/10;
+            rev=rev*10+d;
+        }
+        if(rev==j){
+            printf("%d ",i);
+        }
+    }
+    return 0;
+}
