@@ -1,0 +1,99 @@
+ #include <stdio.h>
+
+#define MAX_SIZE 100
+
+void printArray(int arr[], int size) {
+    int i;
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+void swap(int *A, int *B)
+{
+    int temp;
+    temp=*A;
+    *A=*B;
+    *B=temp;
+}
+
+void sortArray(int arr[], int size) {
+    int i, j, temp;
+    for (i = 0; i < size - 1; i++) {
+        for (j = i + 1; j < size; j++) {
+            if (arr[i] > arr[j]) {
+                 swap(&arr[i],&arr[j]);
+            }
+        }
+    }
+}
+
+void mergeArrays(int arrA[], int sizeA, int arrB[], int sizeB, int arrC[]) {
+    int i, j, k;
+    i = j = k = 0;
+
+    while ((i <= sizeA) && (j <= sizeB)) {
+        if (arrA[i] <= arrB[j]) {
+            arrC[k] = arrA[i];
+            i++;
+        } else {
+            arrC[k] = arrB[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i <= sizeA) {
+        arrC[k] = arrA[i];
+        i++;
+        k++;
+    }
+
+    while (j <= sizeB) {
+        arrC[k] = arrB[j];
+        j++;
+        k++;
+    }
+}
+
+int main() {
+    int arrA[MAX_SIZE], arrB[MAX_SIZE], arrC[MAX_SIZE];
+    int sizeA, sizeB, sizeC;
+    int i;
+
+    printf("Enter the size of array A: ");
+    scanf("%d", &sizeA);
+    printf("Enter the elements of array A: ");
+    for (i = 0; i < sizeA; i++) {
+        scanf("%d", &arrA[i]);
+    }
+
+    printf("Enter the size of array B: ");
+    scanf("%d", &sizeB);
+    printf("Enter the elements of array B: ");
+    for (i = 0; i < sizeB; i++) {
+        scanf("%d", &arrB[i]);
+    }
+
+    printf("Array A: ");
+    printArray(arrA, sizeA);
+
+    printf("Array B: ");
+    printArray(arrB, sizeB);
+
+    printf("Sorting array A...\n");
+    sortArray(arrA, sizeA);
+    printArray(arrA, sizeA);
+    
+    printf("Sorting array B...\n");
+    sortArray(arrB, sizeB);
+    printArray(arrB, sizeB);
+
+    printf("Merging arrays A and B...\n");
+    mergeArrays(arrA, sizeA, arrB, sizeB, arrC);
+    sizeC = sizeA + sizeB;
+    printf("Merged Array C: ");
+    printArray(arrC, sizeC);
+
+    return 0;
+}
