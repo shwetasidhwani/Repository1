@@ -1,0 +1,20 @@
+/*Write a program to check the given Number is a term in the Fibonacci Series or Not*/
+#include<stdio.h>
+#include<math.h>
+void main(){
+    int n;
+    printf("\n Enter a number :");
+    scanf("\n %d",&n);
+    int f1=1,f2=1;
+    while(n>f1){
+        int f=f1+f2;
+        f1=f2;
+        f2=f;
+    }
+    if(f1==n)
+    printf("%d is a term in the fibonacci series. ",n);
+    else
+    printf("%d is not a term in the fibonacci series. ",n);
+}
+
+
