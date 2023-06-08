@@ -1,0 +1,36 @@
+/*Write a program to generate the transpose of a matrix*/
+#include<stdio.h>
+void main(){
+    int row, col;
+    int A[40][40],B[40][40];
+    printf("Enter no. of rows: \n");
+    scanf("%d",&row);
+    printf("Enter no.of columns: \n");
+    scanf("%d",&col);
+    printf("Enter the elements (row-wise);\n");
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            scanf("%d",&A[i][j]);
+        }
+    }
+    printf("The matrix is:\n");
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            printf("%d ",A[i][j]);
+        }
+        printf("\n");
+    }
+    //Now generating transpose
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            B[j][i]=A[i][j];
+        }
+    }
+    printf("The transposed matrix is:\n");
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            printf("%d ",B[i][j]);
+        }
+        printf("\n");
+    }
+}
