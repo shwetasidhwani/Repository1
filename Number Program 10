@@ -1,0 +1,21 @@
+/*Program to print all 4 digit perfect squares where the number forming by first 2 digits and last 2
+digits also perfect squares for eg 1681=41^2 i.e. 4^2=16 and 9^2=81*/
+#include<stdio.h>
+#include<math.h>
+void main(){
+    for(int i=1000;i<=9999;i++){
+        int j=sqrt(i);
+        int n=i;
+        if(i==j*j){
+            int k=n/100;
+            int l=n%100;
+            int a=sqrt(k);
+            int b=sqrt(l);
+            if(k==a*a && l==b*b){
+                printf("%d ",i);
+            }
+        }
+    }
+}
+
+
