@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_STUDENTS 100
+#define MAX_LENGTH 100
+
+struct Student {
+    char name[MAX_LENGTH];
+    int marks;
+};
+
+void sortNamesAlphabetically(struct Student students[], int numStudents) {
+    int i, j;
+    struct Student temp;
+
+    for (i = 0; i < numStudents - 1; i++) {
+        for (j = i + 1; j < numStudents; j++) {
+            if (strcmp(students[i].name, students[j].name) > 0) {
+                temp = students[i];
+                students[i] = students[j];
+                students[j] = temp;
+            }
+        }
+    }
+}
+
+void sortNamesByMarks(struct Student students[], int numStudents) {
+    int i, j;
+    struct Student temp;
+
+    for (i = 0; i < numStudents - 1; i++) {
+        for (j = i + 1; j < numStudents; j++) {
+            if (students[i].marks > students[j].marks) {
+                temp = students[i];
+                students[i] = students[j];
+                students[j] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    struct Student students[MAX_STUDENTS];
+    int numStudents, i;
+
+    printf("Enter the number of students: ");
+    scanf("%d", &numStudents);
+
+    // Read student details
+    for (i = 0; i < numStudents; i++) {
+        printf("Enter the name of student %d: ", i + 1);
+        scanf("%s", students[i].name);
+
+        printf("Enter the marks of student %d: ", i + 1);
+        scanf("%d", &students[i].marks);
+    }
+
+    // Sort names alphabetically
+    sortNamesAlphabetically(students, numStudents);
+
+    printf("\nNames in alphabetical order:\n");
+    for (i = 0; i < numStudents; i++) {
+        printf("%s\n", students[i].name);
+    }
+
+    // Sort names by marks in ascending order
+    sortNamesByMarks(students, numStudents);
+
+    printf("\nNames in ascending order of marks:\n");
+    for (i = 0; i < numStudents; i++) {
+        printf("%s\n", students[i].name);
+    }
+
+    return 0;
+}
