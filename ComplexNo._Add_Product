@@ -1,0 +1,58 @@
+//Program to calculate sum and product of a given complex number using structures.
+#include <stdio.h>
+struct complex 
+{
+    int real;
+    int img;
+};
+struct complex add(struct complex c1,struct complex c2)
+{
+    struct complex c3;
+    c3.real=c1.real+c2.real;
+    c3.img=c1.img+c2.img;
+    return(c3);
+}
+struct complex product(struct complex c1,struct complex c2)
+{
+    struct complex c3;
+    c3.real=c1.real*c2.real-c1.img*c2.img;
+    c3.img=c1.real*c2.img+c1.img*c2.real;
+    return(c3);
+}
+void main() 
+{
+    int r1,r2,i1,i2;
+    printf("\n Enter real part of first complex number: ");
+    scanf("%d",&r1);
+    printf("\n Enter img part of first complex number: ");
+    scanf("%d",&i1);
+    printf("\n Enter real part of second complex number: ");
+    scanf("%d",&r2);
+    printf("\n Enter img part of second complex number: ");
+    scanf("%d",&i2);
+    struct complex n1={r1,i1};
+    struct complex n2={r2,i2};
+    struct complex n3=add(n1,n2);
+    struct complex n4=product(n1,n2);
+    printf("\n Complex number 1: %d + i%d", n1.real, n1.img);
+    printf("\n Complex number 2: %d + i%d", n2.real, n2.img);
+    printf("\n Sum of the complex numbers: %d + i%d", n3.real, n3.img);
+    printf("\n Product of the complex numbers: %d + i%d", n4.real, n4.img);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
