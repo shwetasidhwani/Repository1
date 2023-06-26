@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<string.h>
+#define max 20
+#define items 5
+void main(){
+    char string[items][max],dummy[max];
+    printf("\n Enter names of items :");
+    int k=0;
+    while(k<items){
+        scanf("%s",string[k++]);
+    }
+    for(int i=1;i<items;i++){
+        for(int j=1;j<=items-1;j++){
+            if(strcmp(string[j-1],string[j])>0){
+                strcpy(dummy,string[j-1]);
+                strcpy(string[j-1],string[j]);
+                strcpy(string[j],dummy);
+            }
+        }
+    }
+    printf("\n Alphabetical order: ");
+    for(int i=0;i<items;i++){
+        printf("\n %s",string[i]);
+    }
+}
