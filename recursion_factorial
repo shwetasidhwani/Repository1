@@ -1,0 +1,15 @@
+factorial(int n){
+    int fact;
+    if(n==1 || n==0)
+    return(1);
+    else
+    fact=n*factorial(n-1);
+    return(fact);
+}
+void main(){
+    int num;
+    printf("\n Enter number: ");
+    scanf("%d",&num);
+    int f=factorial(num);
+    printf("\n The factorial is: %d",f);
+}
