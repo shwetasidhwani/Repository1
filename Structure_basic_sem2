@@ -1,0 +1,16 @@
+/*Define a structure type, struct Personal that would contain person name, date of joining and salary.  Using this structure, write a program to read this information for one person from the keyboard and print the same on the screen.*/
+#include<stdio.h>
+struct Personal
+{
+    char Name[50];
+    int day;
+    char month[20];
+    int year;
+    int Salary;
+}person;
+void main()
+{
+    printf("\n Enter Name, Date of Joining and Salary: ");
+    scanf(" %s %d %s %d %d",&person.Name,&person.day,&person.month, &person.year,&person.Salary);
+    printf("\n %s joined on %d of %s, %d. Salary is %d.", person.Name,person.day,person.month,person.year,person.Salary);
+}
